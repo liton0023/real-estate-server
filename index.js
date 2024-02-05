@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
+import userRouter from './controllers/router/user.route.js';
 
 dotenv.config();
 const app = express();
@@ -31,3 +32,6 @@ app.get("/", (req, res) => {
   app.listen(port, () => {
     console.log(` Boss is running on ${port}`);
   });
+
+
+  app.use('/user', userRouter);
