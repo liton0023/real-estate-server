@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
+import authRouter from './controllers/router/auth.route.js';
 import userRouter from './controllers/router/user.route.js';
 
 dotenv.config();
@@ -11,9 +12,10 @@ const port = process.env.PORT || 5000;
 
 // middleweres
 // app.use(cors());
+app.use(express.json())
 app.use(cookieParser());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bzjru.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bzjru.mongodb.net/real-estate?retryWrites=true&w=majority`;
  
 mongoose.connect(uri)
 .then(()=>{
@@ -35,3 +37,4 @@ app.get("/", (req, res) => {
 
 
   app.use('/user', userRouter);
+  app.use('/auth', authRouter);
