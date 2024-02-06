@@ -8,7 +8,7 @@ import userRouter from './controllers/router/user.route.js';
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // middleweres
 // app.use(cors());
@@ -36,8 +36,14 @@ app.get("/", (req, res) => {
   });
 
 
-  app.use('/user', userRouter);
-  app.use('/auth', authRouter);
+  app.use('/api/user', userRouter);
+  app.use('/api/auth', authRouter);
+
+//   app.use(express.static(path.join(_dirname, '/client/dist')));
+
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(_dirname, 'client', 'dist', 'index.html'));
+//   })
 
   app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
