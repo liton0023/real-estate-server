@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
 import authRouter from './controllers/router/auth.route.js';
+import listingRouter from './controllers/router/listing.route.js';
 import userRouter from './controllers/router/user.route.js';
 
 dotenv.config();
@@ -38,6 +39,7 @@ app.get("/", (req, res) => {
 
   app.use('/api/user', userRouter);
   app.use('/api/auth', authRouter);
+  app.use('/api/listing',listingRouter)
 
 //   app.use(express.static(path.join(_dirname, '/client/dist')));
 
