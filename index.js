@@ -1,5 +1,4 @@
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -13,12 +12,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // middleweres
-app.use(cors({
-  origin:[
-    'https://real-estate-3dd13.web.app',
-    'https://real-estate-3dd13.firebaseapp.com/'
-  ]
-}));
+// app.use(cors({
+//   origin:[
+//     'https://real-estate-3dd13.web.app',
+//     'https://real-estate-3dd13.firebaseapp.com/'
+//   ]
+// }));
 app.use(express.json())
 app.use(cookieParser());
 
@@ -42,6 +41,11 @@ app.get("/", (req, res) => {
     console.log(` Boss is running on ${port}`);
   });
 
+//   app.use(express.static(path.join(_dirname, '/client/dist')));
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(_dirname, 'client', 'dist', 'index.html'));
+// })
 
   app.use('/api/user', userRouter);
   app.use('/api/auth', authRouter);
