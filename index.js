@@ -3,7 +3,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-import path from 'path';
 import authRouter from './controllers/router/auth.route.js';
 import listingRouter from './controllers/router/listing.route.js';
 import userRouter from './controllers/router/user.route.js';
@@ -32,7 +31,6 @@ mongoose.connect(uri)
     console.log(err);
 })
 
-const _dirname = path.resolve();
 
 app.get("/", (req, res) => {
     res.send("boss in running");
@@ -44,7 +42,9 @@ app.get("/", (req, res) => {
 
   app.use('/api/user', userRouter);
   app.use('/api/auth', authRouter);
-  app.use('/api/listing',listingRouter)
+  app.use('/api/listing',listingRouter);
+
+
 
 
   app.use((err, req, res, next) => {
