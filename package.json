@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon api/index.js",
     "start": "node api/index.js",
-    "build": "npm install -p public"
+    "build": "npm install"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
