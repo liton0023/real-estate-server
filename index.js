@@ -14,8 +14,9 @@ const port = process.env.PORT || 3000;
 // middleweres
 app.use(cors({
   origin:[
-    'https://real-estate-3dd13.web.app',
-    'https://real-estate-3dd13.firebaseapp.com/'
+    "http://localhost:5173"
+    // 'https://real-estate-3dd13.web.app',
+    // 'https://real-estate-3dd13.firebaseapp.com/'
   ]
 }));
 app.use(express.json())
