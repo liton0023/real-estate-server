@@ -17,7 +17,8 @@ app.use(cors({
     "http://localhost:5173"
     // 'https://real-estate-3dd13.web.app',
     // 'https://real-estate-3dd13.firebaseapp.com/'
-  ]
+  ],
+  credentials:true
 }));
 app.use(express.json())
 app.use(cookieParser());
