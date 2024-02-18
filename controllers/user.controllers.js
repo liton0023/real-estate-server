@@ -1,16 +1,17 @@
 import bcryptjs from 'bcryptjs';
+import dotenv from 'dotenv';
 import Listing from './modules/listings.module.js';
 import User from "./modules/user.module.js";
 import { errorHandler } from './utiles/error.js';
 
+dotenv.config();
 export const test = (req, res) => {
     res.json({
       message: 'Api route is working!',
     });
-  };
-
-
+  }; 
   export const updateUser = async (req, res, next) => {
+    // console.log(req.cookies.access_token)
     if (req.user.id !== req.params.id)
       return next(errorHandler(401, 'You can only update your own account!'));
     try {

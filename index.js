@@ -33,6 +33,8 @@ mongoose.connect(uri)
     console.log(err);
 })
 
+console.log(process.env.DB_PASS)
+console.log(process.env.JWT_SECRET)
 
 app.get("/", (req, res) => {
     res.send("boss in running");
