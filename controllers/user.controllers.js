@@ -41,8 +41,8 @@ export const test = (req, res) => {
   };
 
   export const deleteUser = async (req, res, next) => {
-    const token = req.cookies;
-    console.log(token)
+    // const token = req.cookies;
+    // console.log(token)
     console.log(req.params.id)
     if (req.user.id !== req.params.id)
       return next(errorHandler(401, 'You can only delete your own account!'));

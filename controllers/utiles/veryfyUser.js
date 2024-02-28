@@ -5,8 +5,8 @@ import { errorHandler } from './error.js';
 dotenv.config();
 
 export const verifyToken = (req, res, next) => {
-  const token = req.cookies?.access_token;
-  console.log(token)
+  // const token = req.cookies?.access_token;
+  // console.log(token)
 
   if (!token) return next(errorHandler(401, 'Unauthorized'));
 
