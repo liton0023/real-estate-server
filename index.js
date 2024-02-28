@@ -22,6 +22,7 @@ app.use(cors({
 }));
 app.use(express.json())
 app.use(cookieParser());
+app.use(express.urlencoded({extended:true}))
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bzjru.mongodb.net/real-estate?retryWrites=true&w=majority`;
  
