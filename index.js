@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 // middleweres
 app.use(cors({
   origin:[
-    "http://localhost:5173"
+    "http://localhost:5173",
     // 'https://real-estate-3dd13.web.app',
     // 'https://real-estate-3dd13.firebaseapp.com/'
   ],
@@ -33,8 +33,8 @@ mongoose.connect(uri)
     console.log(err);
 })
 
-console.log(process.env.DB_PASS)
-console.log(process.env.JWT_SECRET)
+// console.log(process.env.DB_PASS)
+// console.log(process.env.JWT_SECRET)
 
 app.get("/", (req, res) => {
     res.send("boss in running");

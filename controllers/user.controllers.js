@@ -41,6 +41,9 @@ export const test = (req, res) => {
   };
 
   export const deleteUser = async (req, res, next) => {
+    const token = req.cookies;
+    console.log(token)
+    console.log(req.params.id)
     if (req.user.id !== req.params.id)
       return next(errorHandler(401, 'You can only delete your own account!'));
     try {
@@ -56,6 +59,7 @@ export const test = (req, res) => {
     if (req.user.id === req.params.id) {
       try {
         const listings = await Listing.find({ userRef: req.params.id });
+        console.log(listings)
         res.status(200).json(listings);
       } catch (error) {
         next(error);

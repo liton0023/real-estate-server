@@ -17,8 +17,7 @@ export const signup = async (req, res, next) => {
   }
 };
 
-// console.log(process.env.DB_PASS)
-// console.log(process.env.JWT_SECRET)
+
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
